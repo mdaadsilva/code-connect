@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+
+  code-connect:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - "5173:5173"
+    container_name: code-connect-app
+    networks:
+      - app_network
+networks:  
+  app_network:
+    driver: bridge
