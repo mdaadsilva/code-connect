@@ -1,5 +1,6 @@
 import { CardPost } from "@/components/CardPost";
 import logger from "@/logger";
+import Styles from "./page.module.css";
 
 // const post = {
   
@@ -18,7 +19,7 @@ async function getAllPost() {
 export default async function Home() {
   const posts = await getAllPost()
   return (
-    <main>
+    <main className={Styles.postsContainer}>
       {posts.map(post => <CardPost key={post.id} post={post} />)}
     </main>
   );
