@@ -3,6 +3,8 @@ import logger from "@/logger";
 import Styles from "./page.module.css";
 import Link from "next/link";
 
+const TOTAL_PAGES = 3;
+
 async function getAllPost(page) {
   const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`, {
     cache: "no-store"
@@ -19,7 +21,7 @@ async function getAllPost(page) {
   return {
     data: json.data,
     prev: currentPage > 1 ? currentPage - 1 : null,
-    next: json.data.length === 6 ? currentPage + 1 : null
+    next: currentPage < TOTAL_PAGES ? currentPage + 1 : null
   };
 }
 
