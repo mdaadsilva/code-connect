@@ -2,12 +2,8 @@ import { CardPost } from "@/components/CardPost";
 import logger from "@/logger";
 import Styles from "./page.module.css";
 
-// const post = {
-  
-// }
-
-async function getAllPost() {
- const response = await fetch('http://localhost:3042/posts')
+async function getAllPost(page) {
+ const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`)
  if(!response.ok){
   logger.error('Ops. alguma coisa ocorreu mal')
   return []
@@ -17,7 +13,7 @@ async function getAllPost() {
 }
 
 export default async function Home() {
-  const posts = await getAllPost()
+  const {data: posts} = await getAllPost(1)
   return (
     <main className={Styles.postsContainer}>
       {posts.map(post => <CardPost key={post.id} post={post} />)}
