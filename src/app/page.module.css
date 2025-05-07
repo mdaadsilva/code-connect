@@ -1,9 +1,9 @@
-.postsContainer {
+.grid {
     display: flex;
+    gap: 24px;
     flex-wrap: wrap;
-    gap:32px;
+    justify-content: space-between;
 }
-
 
 .links {
     text-align: center;

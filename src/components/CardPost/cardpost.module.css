@@ -12,6 +12,7 @@
 
 .header figure {
     margin: 0;
+    position: relative;
 }
 
 .body {
@@ -43,7 +44,7 @@
     padding: 16px;
 }
 
-.link{
+.link {
     text-decoration: none;
     cursor: pointer;
 }

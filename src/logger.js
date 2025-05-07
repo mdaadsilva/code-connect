@@ -1,7 +1,5 @@
 import { createLogger, format, transports } from 'winston';
 
-const winston = require('winston');
-
 const logger = createLogger({
   level: 'info',
   format: format.json(),
@@ -15,4 +13,4 @@ const logger = createLogger({
   ],
 });
 
-export default logger;
+export default logger
